@@ -1,0 +1,11 @@
+.box {
+	width: 150px;
+	height: 150px;
+	border-radius: 1em;
+	background-color: skyblue;
+}
+.btn {
+	width: 100px;
+	height: 25px;
+	background-color: dodgerblue;
+}
