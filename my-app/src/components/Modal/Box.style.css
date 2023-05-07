@@ -1,0 +1,11 @@
+.box {
+	width: 350px;
+	height: 150px;
+	border-radius: 1em;
+	background-color: skyblue;
+}
+/* .box[data-isopen="true"] {
+	width: 550px;
+	height: 150px;
+	background-color: dodgerblue;
+} */
