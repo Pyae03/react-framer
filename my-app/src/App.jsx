@@ -1,8 +1,11 @@
 import "./App.css";
-import Box from "./components/Modal/Box";
+
 import { useState } from "react";
-import Button from "./components/Button";
+
 import { AnimatePresence } from "framer-motion";
+import ImageContainer from "./components/ImageSlider/imageContainer";
+
+import ItemContainer from "./components/Item/ItemContainer";
 
 function App() {
 	const [isOpen, setOpen] = useState(false);
@@ -13,7 +16,9 @@ function App() {
 	console.log("state: ", isOpen);
 	return (
 		<>
-			<AnimatePresence>
+			<ItemContainer />
+			{/* <ImageContainer /> */}
+			{/* <AnimatePresence>
 				{isOpen && (
 					<Box
 						handleClick={handleClick}
@@ -22,7 +27,7 @@ function App() {
 				)}
 			</AnimatePresence>
 
-			{!isOpen && <Button handleClick={handleClick} />}
+			{!isOpen && <Button handleClick={handleClick} />} */}
 		</>
 	);
 }
