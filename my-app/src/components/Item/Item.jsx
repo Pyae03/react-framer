@@ -3,10 +3,10 @@ import "./Item.style.css";
 
 const test_variant = {
 	active: {
-		backgroundColor: "#48C9B0",
+		backgroundColor: "#EAECEE",
 	},
 	inactive: {
-		backgroundColor: "#5D6D7E",
+		backgroundColor: "#FFF",
 	},
 };
 
@@ -17,11 +17,17 @@ export default function Item({ handleSelect, selected, item_id }) {
 			<motion.div
 				onClick={() => handleSelect(item_id)}
 				className="item"
-				whileHover={{ scale: 1.1 }}
 				// initial={{ width: 100, height: 50 }}
 				variants={test_variant}
 				animate={selected ? "active" : "inactive"}>
-				<h2>Variant{item_id}</h2>
+				<p>Variant{item_id}</p>
+
+				{selected && (
+					<motion.div
+						className="underline"
+						layoutId="underline"
+					/>
+				)}
 			</motion.div>
 		</>
 	);
