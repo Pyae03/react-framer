@@ -1,4 +1,4 @@
-import { motion } from "framer-motion";
+import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 import Item from "./Item";
 import Board from "./Board";
@@ -7,36 +7,36 @@ export default function ItemContainer() {
 	const [items, setItems] = useState([
 		{
 			id: 1,
-			condition: true,
+			disable: true,
 			text_data: "Professional Dumbass",
 		},
 		{
 			id: 2,
-			condition: false,
+			disable: false,
 			text_data: "Good Attitude",
 		},
 		{
 			id: 3,
-			condition: false,
+			disable: false,
 			text_data: "Yo! WTF",
 		},
 	]);
 
-	const [itemId, setItemId] = useState(null || 1);
+	const [selectedItem, setSelectedItem] = useState(items[0]);
 
 	function handleSelect(item_id) {
 		console.log("current: ", item_id);
-		//const clicked = () => setItemId(item_id);
-		if (item_id !== itemId)
+		//const clicked = () => setselectedItem(item_id);
+		if (item_id !== selectedItem.id)
 			setItems((oldItems) =>
 				oldItems.map((item) =>
 					item.id === item_id
-						? { ...item, condition: !item.condition }
-						: { ...item, condition: false }
+						? { ...item, disable: !item.disable }
+						: { ...item, disable: false }
 				)
 			);
 		//clicked();
-		setItemId(item_id);
+		setSelectedItem(items[item_id - 1]);
 	}
 
 	return (
@@ -48,14 +48,13 @@ export default function ItemContainer() {
 							key={item.id}
 							item_id={item.id}
 							handleSelect={handleSelect}
-							selected={item.condition}
+							selected={item.disable}
 						/>
 					))}
 				</div>
-				<Board
-					value={itemId}
-					data={items[itemId - 1].text_data}
-				/>
+				<AnimatePresence>
+					{selectedItem && <Board data={selectedItem} />}
+				</AnimatePresence>
 			</motion.div>
 		</>
 	);

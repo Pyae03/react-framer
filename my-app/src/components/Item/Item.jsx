@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import "./Item.style.css";
-
+import { data_emoji } from "./Board";
 const test_variant = {
 	active: {
 		backgroundColor: "#EAECEE",
@@ -20,7 +20,7 @@ export default function Item({ handleSelect, selected, item_id }) {
 				// initial={{ width: 100, height: 50 }}
 				variants={test_variant}
 				animate={selected ? "active" : "inactive"}>
-				<p>Variant{item_id}</p>
+				<p>{data_emoji[item_id - 1]}</p>
 
 				{selected && (
 					<motion.div

@@ -6,6 +6,7 @@ import { AnimatePresence } from "framer-motion";
 import ImageContainer from "./components/ImageSlider/imageContainer";
 
 import ItemContainer from "./components/Item/ItemContainer";
+import LayoutTest from "./components/Layout/LayoutTest";
 
 function App() {
 	const [isOpen, setOpen] = useState(false);
@@ -16,7 +17,8 @@ function App() {
 	console.log("state: ", isOpen);
 	return (
 		<>
-			<ItemContainer />
+			<LayoutTest />
+			{/* <ItemContainer /> */}
 			{/* <ImageContainer /> */}
 			{/* <AnimatePresence>
 				{isOpen && (
